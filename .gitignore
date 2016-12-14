@@ -1,0 +1,6 @@
+/coverage/
+/doc/
+/pkg/
+tmp/
+node_modules/
+/log/*.log
