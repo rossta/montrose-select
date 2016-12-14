@@ -1,5 +1,7 @@
 # montrose-select
 
+[![Build Status](https://travis-ci.org/rossta/montrose-select.svg?branch=master)](https://travis-ci.org/rossta/montrose-select)
+
 A javascript menu for setting event recurrence, like Google Calendar events
 
 Built to integrate with the [`montrose`](https://github.com/rossta/montrose) ruby gem
