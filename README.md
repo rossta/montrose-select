@@ -1,10 +1,11 @@
 # montrose-select
 
-A javascript menu for selecting event recurrence.
+A javascript menu for setting event recurrence, like Google Calendar events
 
-Integrates with the [`montrose`](https://github.com/rossta/montrose) ruby gem
+Built to integrate with the [`montrose`](https://github.com/rossta/montrose) ruby gem
 through the [`montrose-rails`](https://github.com/rossta/montrose-rails) Rails
-engine for handling event recurrences on the backend.
+engine for handling event recurrences on the backend. Flexible enough to be used
+in other contexts.
 
 ![](screenshot.png)
 
@@ -37,15 +38,19 @@ Given a form:
 import MontroseSelect from 'montrose-select'
 
 new MontroseSelect({
-  target: document.querySelector('[data-recurrence="label"]'), // Replaces targeted DOM element
+  // Replaces targeted DOM element
+  target: document.querySelector('[data-recurrence="label"]'),
 
-  recurrence: null,                                            // initial recurrence value
+  // initial recurrence value
+  recurrence: null,
 
-  onChange: (recurrence) => {                                  // Callback when recurrence changes
+  // Callback when recurrence changes
+  onChange: (recurrence) => {
     console.log('Recurrence changed', recurrence)
   },
 
-  onFinish: (recurrence) => {                                  // Callback when recurrence editing is "done"
+  // Callback when recurrence editing is "done"
+  onFinish: (recurrence) => {
     document.querySelector('[data-recurrence="input"]').value = JSON.stringify(recurrence)
   },
 })
@@ -55,11 +60,29 @@ The recurrence is a JavaScript object with the following properties:
 
 ```javascript
 {
-  frequency: 'day',      // | 'week' | 'month' | 'year'; specifies units, required,
-  interval: 2,           // any integer; specify unit count; optional; defaults to 1
-  starts: '2016-12-01',  // an ISO-string or Date object; when recurrence starts; optional
-  until: '2016-12-31',   // same as 'starts'; when recurrence ends by date; optional
-  total: 10,             // instead of 'until'; when recurrence ends by count; optional
+  // specifies units; 'day' | 'week' | 'month' | 'year';
+  // required
+  frequency: 'day',
+
+  // specify unit count; any integer; defaults to 1;
+  // optional
+  interval: 2,
+
+  // when recurrence starts; an ISO-string or Date object;
+  // optional
+  starts: '2016-12-01',
+
+  // when recurrence ends by date; same as 'starts';
+  // optional
+  until: '2016-12-31',
+
+  // when recurrence ends by count; instead of 'until';
+  // optional
+  total: 10,
+
+  // specify day of week for weekly recurrence;
+  // [0-6] for Sunday-Saturday; optional
+  day: [0, 3, 6],
 }
 ```
 
