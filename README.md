@@ -37,15 +37,15 @@ Given a form:
 import MontroseSelect from 'montrose-select'
 
 new MontroseSelect({
-  target: document.querySelector('[data-recurrence="label"]'), \\ Replaces targeted DOM element
+  target: document.querySelector('[data-recurrence="label"]'), // Replaces targeted DOM element
 
-  recurrence: null,                                            \\ initial recurrence value
+  recurrence: null,                                            // initial recurrence value
 
-  onChange: (recurrence) => {                                  \\ Callback when recurrence changes
+  onChange: (recurrence) => {                                  // Callback when recurrence changes
     console.log('Recurrence changed', recurrence)
   },
 
-  onFinish: (recurrence) => {                                  \\ Callback when recurrence editing is "done"
+  onFinish: (recurrence) => {                                  // Callback when recurrence editing is "done"
     document.querySelector('[data-recurrence="input"]').value = JSON.stringify(recurrence)
   },
 })
@@ -55,11 +55,11 @@ The recurrence is a JavaScript object with the following properties:
 
 ```javascript
 {
-  frequency: 'day',      # | 'week' | 'month' | 'year'; specifies units, required,
-  interval: 2,           # any integer; specify unit count; optional; defaults to 1
-  starts: '2016-12-01',  # an ISO-string or Date object; when recurrence starts; optional
-  until: '2016-12-31',   # same as 'starts'; when recurrence ends by date; optional
-  total: 10,             # instead of 'until'; when recurrence ends by count; optional
+  frequency: 'day',      // | 'week' | 'month' | 'year'; specifies units, required,
+  interval: 2,           // any integer; specify unit count; optional; defaults to 1
+  starts: '2016-12-01',  // an ISO-string or Date object; when recurrence starts; optional
+  until: '2016-12-31',   // same as 'starts'; when recurrence ends by date; optional
+  total: 10,             // instead of 'until'; when recurrence ends by count; optional
 }
 ```
 
