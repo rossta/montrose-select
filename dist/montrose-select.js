@@ -1862,6 +1862,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = _montroseSelect2.default;
 
+
+module.exports = _montroseSelect2.default;
+
 },{"./css/index.scss":55,"./css/pure-buttons-min.css":56,"./montrose-select":67}],58:[function(_dereq_,module,exports){
 'use strict';
 
