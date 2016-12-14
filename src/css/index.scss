@@ -1,0 +1,224 @@
+@mixin clearfix {
+  overflow: auto;
+  zoom: 1;
+}
+
+@mixin reset {
+  div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure,
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+  body {
+    line-height: 1;
+  }
+  ol, ul {
+    list-style: none;
+  }
+  blockquote, q {
+    quotes: none;
+  }
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: '';
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+}
+
+.montrose-root {
+  input[type="radio"], input[type="checkbox"] {
+    float: left;
+    margin-right: 0.5em;
+  }
+
+  label {
+    vertical-align: middle;
+  }
+}
+
+.montrose {
+  @include reset;
+
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  z-index: 0;
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  left: 0;
+  top: 0;
+
+  opacity: 0;
+  transition: 0.5s;
+
+  &.visible {
+    opacity: 1;
+  }
+
+  a {
+    &:visited {
+      color: inherit;
+    }
+
+    &:hover {
+      background-color: none;
+    }
+  }
+
+  label {
+    font-size: 1em;
+  }
+
+  input[type="number"] {
+    width: 5em;
+  }
+
+  input[type="text"], input[type="date"] {
+    width: 12.5em;
+  }
+
+  input[type="text"] {
+    padding: 0.25em;
+  }
+
+  .pure-button {
+    margin-left: 5px;
+  }
+
+  .montrose-overlay {
+    z-index: 1;
+    opacity: 0.3;
+    min-height: 100%;
+    min-width: 100%;
+    overflow-x: hidden;
+    transition: 0.5s;
+    position: absolute;
+    background-color: black;
+  }
+
+  .montrose-menu {
+    z-index: 2;
+    position: absolute;
+    border: 1px solid #555;
+    border-radius: 4px;
+    width: 50%;
+    max-width: 525px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 2;
+  }
+
+  .montrose-section {
+    padding: 1.5em 1.5em 0 1.5em;
+
+    &:last-child {
+      padding-bottom: 1.5em;
+    }
+  }
+
+  .montrose-row {
+    @include clearfix;
+
+    margin-bottom: 1em;
+  }
+
+  .montrose-row > label {
+    float: left;
+    width: 25%;
+    text-align: right;
+    padding-right: 1em;
+    font-weight: bold;
+    line-height: 1.5em;
+  }
+
+  .montrose-row .montrose-row {
+    margin-bottom: 0.5em;
+  }
+
+  .montrose-field {
+    float: left;
+    width: 70%;
+  }
+
+  .montrose-field label {
+    font-weight: normal;
+    text-align: left;
+    width: 65%;
+
+    &.montrose-inline {
+      display: inline-block;
+      width: auto;
+      margin-right: 1em;
+    }
+  }
+
+  .montrose-field input {
+    &.montrose-inline {
+      margin-right: 0.5em;
+      margin-left: 0.5em;
+    }
+  }
+
+  .montrose-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+
+  .montrose-close-link {
+    float: right;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+
+  .montrose-disabled-placeholder {
+    color: transparent;
+  }
+}
+
+@media only screen and (max-width: 64em) {
+  .montrose {
+    .montrose-menu {
+      top: 45%;
+      width: 75%;
+      font-size: 0.95em;
+    }
+  }
+}
+
+@media only screen and (max-width: 39.9375em) {
+  .montrose {
+    .montrose-menu {
+      top: 35%;
+      width: 90%;
+      font-size: 0.85em;
+    }
+  }
+}
+
