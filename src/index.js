@@ -3,3 +3,5 @@ import './css/index.scss'
 import MontroseSelect from './montrose-select'
 
 export default MontroseSelect
+
+module.exports = MontroseSelect
