@@ -6,7 +6,7 @@
   "scripts": {
     "build": "run-p build:*",
     "build:dev": "browserify -e src/index.js -t babelify -t scssify --standalone MontroseSelect | derequire - > dist/montrose-select.js",
-    "build:min": "browserify -e src/index.js -t babelify -t scssify -t uglifyify --standalone MontroseSelect | derequire - > dist/montrose-select.min.js",
+    "build:min": "browserify -e src/index.js -t babelify -t scssify --standalone MontroseSelect | derequire - | uglifyjs --screw-ie8 --compress --comments --mangle > dist/montrose-select.min.js",
     "dev": "run-p watch",
     "http": "http-server -o --silent",
     "lint": "eslint src/montrose-select.js || true",
@@ -59,6 +59,6 @@
     "onchange": "^3.2.0",
     "preact": "^7.1.0",
     "scssify": "^2.2.0",
-    "uglifyify": "^3.0.4"
+    "uglifyjs": "^2.4.10"
   }
 }
